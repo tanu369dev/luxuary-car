@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vantage Row</title>
+<meta name="description" content="Buy and sell inspected second-hand luxury cars.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top">VANTAGE<span>ROW</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="hide-s" href="#browse">Buy</a>
+      <a class="hide-s" href="#sell">Sell</a>
+      <a class="hide-s" href="#how">How it works</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark theme" type="button">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+      </button>
+      <a class="btn solid" href="#sell">List your car</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">Pre-owned luxury and supercars</div>
+      <h1>Luxury cars, already <em>run in.</em></h1>
+      <p class="lede">Buy a second-hand Ferrari, Rolls-Royce or Lamborghini that has been through a full inspection, or sell yours to verified buyers. Payment sits in escrow until the RC transfer is done.</p>
+      <div class="cta">
+        <a class="btn solid" href="#browse">Browse cars</a>
+        <a class="btn" href="#sell">Sell your car</a>
+      </div>
+      <div class="guard" id="how">
+        <div><b>212-point inspection</b><span>Every listing, before it goes live.</span></div>
+        <div><b>Escrow payment</b><span>Funds release after hand-over.</span></div>
+        <div><b>RC transfer handled</b><span>Paperwork and NOC checked for you.</span></div>
+      </div>
+    </div>
+    <div class="feature" id="feature" aria-label="Featured car"></div>
+  </section>
+
+  <section class="wrap browse" id="browse">
+    <div class="browse-head">
+      <div>
+        <div class="eyebrow">Showroom</div>
+        <h2>Current listings</h2>
+      </div>
+      <div class="count" id="count" aria-live="polite"></div>
+    </div>
+    <div class="filters" role="search">
+      <div class="field"><label for="q">Search</label><input id="q" type="search" placeholder="Make, model or city"></div>
+      <div class="field"><label for="make">Make</label><select id="make"></select></div>
+      <div class="field"><label for="budget">Budget</label>
+        <select id="budget">
+          <option value="0">Any price</option>
+          <option value="30000000">Up to ₹3 Cr</option>
+          <option value="50000000">Up to ₹5 Cr</option>
+          <option value="100000000">Up to ₹10 Cr</option>
+        </select></div>
+      <div class="field"><label for="sort">Sort by</label>
+        <select id="sort">
+          <option value="new">Newest listed</option>
+          <option value="lo">Price: low to high</option>
+          <option value="hi">Price: high to low</option>
+          <option value="km">Lowest mileage</option>
+        </select></div>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Body type"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="sell" id="sell">
+    <div class="wrap sell-grid">
+      <div>
+        <div class="eyebrow">For sellers</div>
+        <h2>Sell your luxury car to a buyer who knows what it is.</h2>
+        <p style="color:var(--muted);margin:0">Tell us about the car and add photos. We book an inspection, price it against recent sales and list it once it passes.</p>
+        <ol class="steps">
+          <li><span class="mono">STEP 1</span><div><b>Submit the details</b><span>Make, model, year, odometer reading and your asking price.</span></div></li>
+          <li><span class="mono">STEP 2</span><div><b>Inspection at your door</b><span>Our engineer checks paint depth, service history and the chassis number.</span></div></li>
+          <li><span class="mono">STEP 3</span><div><b>Offers from verified buyers</b><span>Each buyer is ID-checked before they can make an offer.</span></div></li>
+          <li><span class="mono">STEP 4</span><div><b>Paid through escrow</b><span>The buyer's money is held until the RC transfer is complete.</span></div></li>
+        </ol>
+      </div>
+      <form class="sellf" id="sellForm" novalidate>
+        <div class="field"><label for="s-make">Make</label><input id="s-make" required placeholder="e.g. Mercedes-Benz"><div class="err" data-for="s-make"></div></div>
+        <div class="field"><label for="s-model">Model and variant</label><input id="s-model" required placeholder="e.g. S 680 Maybach"><div class="err" data-for="s-model"></div></div>
+        <div class="field"><label for="s-year">Year</label><input id="s-year" type="number" required min="1990" max="2026" placeholder="2021"><div class="err" data-for="s-year"></div></div>
+        <div class="field"><label for="s-km">Odometer (km)</label><input id="s-km" type="number" required min="0" placeholder="18000"><div class="err" data-for="s-km"></div></div>
+        <div class="field"><label for="s-price">Asking price (₹)</label><input id="s-price" type="number" required min="100000" placeholder="45000000"><div class="err" data-for="s-price"></div></div>
+        <div class="field"><label for="s-city">City</label><input id="s-city" required placeholder="Mumbai"><div class="err" data-for="s-city"></div></div>
+        <div class="field"><label for="s-body">Body type</label>
+          <select id="s-body"><option>Coupe</option><option>Convertible</option><option>Sedan</option><option>SUV</option></select></div>
+        <div class="field"><label for="s-owner">Owners so far</label>
+          <select id="s-owner"><option>1</option><option>2</option><option>3</option></select></div>
+        <div class="field full"><label for="s-desc">Condition and history</label><textarea id="s-desc" placeholder="Service record, accident history, modifications, what is included in the sale."></textarea></div>
+        <div class="full">
+          <label class="drop" id="drop" for="s-photo">
+            <img id="s-prev" alt="">
+            <div><b>Add a photo</b><div style="color:var(--muted);font-size:.88rem">Drop an image here or click to choose one. Exterior, front three-quarter works best.</div></div>
+          </label>
+          <input id="s-photo" type="file" accept="image/*" hidden>
+        </div>
+        <div class="full"><button class="btn solid block" type="submit">Submit for inspection</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b style="font-family:var(--f-display);font-stretch:125%">VANTAGE<span style="color:var(--brass)">ROW</span></b> · Pre-owned luxury cars</div>
+    <div>Listings shown are sample listings. Prices in Indian rupees (Cr = crore, 1 Cr = ₹1,00,00,000).</div>
+  </div>
+</footer>
+
+<div class="veil" id="veil" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="d-title" id="sheet"></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
